@@ -5,20 +5,20 @@ import { Metadata } from "next";
 import { Analytics } from "./components/analytics";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://tueely.com"),
   title: {
-    default: "chronark.com",
-    template: "%s | chronark.com",
+    default: "tueely.com",
+    template: "%s | tueely.com",
   },
-  description: "Co-founder of unkey.dev and founder of planetfall.io",
+  description: "AI labs, IB resources, and practical engineering notes.",
   openGraph: {
-    title: "chronark.com",
-    description:
-      "Co-founder of unkey.dev and founder of planetfall.io",
-    url: "https://chronark.com",
-    siteName: "chronark.com",
+    title: "tueely.com",
+    description: "AI labs, IB resources, and practical engineering notes.",
+    url: "https://tueely.com",
+    siteName: "tueely.com",
     images: [
       {
-        url: "https://chronark.com/og.png",
+        url: "https://tueely.com/og.png",
         width: 1920,
         height: 1080,
       },
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     },
   },
   twitter: {
-    title: "Chronark",
+    title: "tueely.com",
     card: "summary_large_image",
   },
   icons: {
