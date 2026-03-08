@@ -3,7 +3,11 @@ import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
 
-export const Navigation: React.FC = () => {
+type NavigationProps = {
+	backHref?: string;
+};
+
+export const Navigation: React.FC<NavigationProps> = ({ backHref = "/" }) => {
 	const ref = useRef<HTMLElement>(null);
 	const [isIntersecting, setIntersecting] = useState(true);
 
@@ -26,7 +30,14 @@ export const Navigation: React.FC = () => {
 						: "bg-zinc-900/500  border-zinc-800 "
 				}`}
 			>
-				<div className="container flex flex-row-reverse items-center justify-between p-6 mx-auto">
+				<div className="container flex items-center justify-between p-6 mx-auto">
+					<Link
+						href={backHref}
+						className="duration-200 text-zinc-300 hover:text-zinc-100"
+					>
+						<ArrowLeft className="w-6 h-6 " />
+					</Link>
+
 					<div className="flex justify-between gap-8">
 						<Link
 							href="/tg-research"
@@ -35,7 +46,7 @@ export const Navigation: React.FC = () => {
 							TG-Research
 						</Link>
 						<Link
-							href="/ib-research"
+							href="/ib"
 							className="duration-200 text-zinc-400 hover:text-zinc-100"
 						>
 							IB-Research
@@ -47,13 +58,6 @@ export const Navigation: React.FC = () => {
 							AI-Research
 						</Link>
 					</div>
-
-					<Link
-						href="/"
-						className="duration-200 text-zinc-300 hover:text-zinc-100"
-					>
-						<ArrowLeft className="w-6 h-6 " />
-					</Link>
 				</div>
 			</div>
 		</header>

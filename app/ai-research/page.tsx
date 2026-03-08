@@ -1,30 +1,19 @@
 import Link from "next/link";
 import { Navigation } from "../components/nav";
 import { Card } from "../components/card";
+import { aiArticles } from "./content";
 
 type AiLink = {
+  slug: string;
   title: string;
   description: string;
-  href: string;
 };
 
-const links: AiLink[] = [
-  {
-    title: "Sample Video",
-    description: "A featured walkthrough video that explains the product or workflow end-to-end.",
-    href: "https://www.youtube.com/watch?v=zjkBMFhNj_g",
-  },
-  {
-    title: "Live Demo",
-    description: "A direct demo experience you can swap with your hosted app or prototype.",
-    href: "https://huggingface.co/spaces",
-  },
-  {
-    title: "Contact",
-    description: "A contact action for collaborations, consulting, or project support.",
-    href: "mailto:hello@tueely.com",
-  },
-];
+const links: AiLink[] = aiArticles.map((article) => ({
+  slug: article.slug,
+  title: article.title,
+  description: article.description,
+}));
 
 export const metadata = {
   title: "AI-Research",
@@ -46,15 +35,11 @@ export default function AiPage() {
         <div className="grid w-full grid-cols-1 gap-8 sm:grid-cols-3 lg:gap-12">
           {links.map((item) => (
             <Card key={item.title}>
-              <Link
-                href={item.href}
-                target="_blank"
-                className="relative flex flex-col h-full gap-4 p-6 duration-300 md:p-8"
-              >
+              <Link href={`/ai-research/${item.slug}`} className="relative flex flex-col h-full gap-4 p-6 duration-300 md:p-8">
                 <span className="text-xl font-medium text-zinc-100 font-display">{item.title}</span>
                 <span className="text-sm leading-7 text-zinc-400">{item.description}</span>
                 <span className="mt-auto text-sm underline text-zinc-300 underline-offset-4 decoration-zinc-700">
-                  Open link
+                  Open article
                 </span>
               </Link>
             </Card>
