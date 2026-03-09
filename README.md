@@ -19,7 +19,7 @@ The goal of this project is to create a fast, responsive, and accessible platfor
 - Simple and maintainable project structure
 - Easy deployment workflow
 - Open for contributions and improvements
-
+- This is a test
 ---
 
 ## Getting Started
